@@ -99,3 +99,36 @@ Simple user auth in go ( in a lil scary way )
   # Include the JWT token in the Authorization header
   Authorization: Bearer your.jwt.token
   ```
+
+## 🗺️ Roadmap
+
+### Phase 1: Enhanced Authentication
+- [ ] Email verification flow
+- [ ] Password reset functionality
+- [ ] OAuth2 integration (Google, GitHub)
+- [ ] Role-based access control (RBAC)
+- [ ] Session management
+
+### Phase 2: Security Improvements
+- [ ] Rate limiting for login attempts
+- [ ] IP-based blocking
+- [ ] Password strength requirements
+- [ ] Two-factor authentication (2FA)
+- [ ] CORS configuration
+- [ ] Security headers implementation
+
+### Phase 3: API Enhancements
+- [ ] User profile management
+- [ ] API documentation with Swagger/OpenAPI
+- [ ] Refresh token implementation
+- [ ] Account deletion
+- [ ] Logging and monitoring
+- [ ] API versioning
+
+### Phase 4: Infrastructure
+- [ ] Dockerize the Go application
+- [ ] CI/CD pipeline setup
+- [ ] Automated testing
+- [ ] Production deployment guide
+- [ ] Performance monitoring
+- [ ] Backup and restore procedures

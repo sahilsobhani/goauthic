@@ -100,14 +100,27 @@ func (h *Handler) LoginUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Generate token
-	token, err := utils.GenerateToken(user.Email)
+	// Generate enhanced token with user information
+	token, err := utils.GenerateToken(user.ID, user.Email)
 	if err != nil {
 		http.Error(w, "Error signing token", http.StatusInternalServerError)
 		return
 	}
 
-	json.NewEncoder(w).Encode(map[string]string{"token": token})
+	// Set token in response header
+	w.Header().Set("Authorization", "Bearer "+token)
+	w.Header().Set("Content-Type", "application/json")
+
+	// Return user info along with token
+	response := map[string]interface{}{
+		"token": token,
+		"user": map[string]string{
+			"id":    user.ID,
+			"email": user.Email,
+		},
+	}
+
+	json.NewEncoder(w).Encode(response)
 }
 
 func (h *Handler) GetUser(w http.ResponseWriter, r *http.Request) {

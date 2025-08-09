@@ -24,6 +24,6 @@ func Connect() *sql.DB {
         log.Fatalf("Failed to connect to database: %v", err)
     }
 
-    fmt.Println("✅ Connected to Postgres!")
+    fmt.Println("Connected to Postgres!")
     return db
 }

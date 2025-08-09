@@ -1,0 +1,39 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go build cache
+**/vendor/
+bin/
+build/
+dist/
+
+# Go workspace file (Go 1.18+)
+go.work
+go.work.sum
+
+# Environment variables
+.env
+
+
+# Logs
+*.log
+
+# Docker
+# (Keep compose file, ignore generated volumes)
+docker-compose.override.yml
+postgres_data/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp

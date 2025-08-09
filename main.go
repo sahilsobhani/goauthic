@@ -12,13 +12,11 @@ import (
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 	"golang.org/x/crypto/bcrypt"
+	"github.com/joho/godotenv"
+    "goauthic/db"
 )
 
-type User struct {
-	ID       string `json:"id"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
-}
+
 
 var users = map[string]User{}
 var jwtKey = []byte("secret")
@@ -85,6 +83,16 @@ func getUserHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	err := godotenv.Load()
+    if err != nil {
+        log.Println("⚠️ No .env file found, reading from environment")
+    }
+
+    database := db.Connect()
+    defer database.Close()
+
+	
 	r := mux.NewRouter()
 	r.HandleFunc("/register", registerUserHandler).Methods("POST")
 	r.HandleFunc("login", loginUserHandler).Methods("POST")
